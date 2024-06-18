@@ -1,26 +1,53 @@
 # PRODIGY_ML_01
-INTRODUCTION
+# Linear Regression model to predict prices of houses
 
-Welcome to my first machine learning project! The primary objective of this project is to predict prices using machine learning techniques. I have conducted a basic Exploratory Data Analysis (EDA) on the dataset and implemented three different models. The goal is to compare these models and determine the best-performing one for price prediction.
+OVERVIEW
 
-EXPLORATORY DATA ANALYSIS(EDA)  
+The code aims to build and evaluate linear regression models to predict house prices (SalePrice) based on their square footage and number of bedrooms and bathrooms, using a dataset containing information about residential properties. Two variations of linear regression models are demonstrated: one with polynomial features and another without.
 
-I began by thoroughly exploring the dataset to gain a deeper understanding of its characteristics. This involved analyzing data distributions, identifying outliers, handling missing values, and visualizing key trends. EDA played a crucial role in informing subsequent modeling decisions and ensuring a comprehensive understanding of the data.
+DATASET
 
-MODEL COMPARISION
+The dataset consists of: 1. train.csv - the training set 2. test.csv - the test set 3. data_description.txt - full description of each column, originally prepared by Dean De Cock but lightly edited to match the column names used here 4. sample_submission.csv - a benchmark submission from a linear regression on year and month of sale, lot square footage, and number of bedrooms
 
-For this project, I implemented three machine learning models: LinearRegression,DecisionTreeRegressor and RandomForestRegressor. Each model was chosen based on its suitability for the task and its potential to capture the underlying patterns in the data. I trained and evaluated each model, comparing their performance metrics and assessing how well they predicted prices.
+Dataset link: https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/data?select=test.csv
 
-RESULTS 
+TECHNOLOGIES USED
 
-After a rigorous comparison, RandomForestRegressor emerged as the most accurate in predicting prices. The performance metrics, such as After Cross-Validation calculated 200 rmse and then found out the mean and std of these rmse's, indicate its superior capability in capturing the underlying patterns in the dataset. This model is selected as the final choice for price prediction in this project.
+1.Python: The primary programming language for the entire solution.
 
-FUTURE STEPS
-As my first machine learning project, there is always room for improvement. In the future, I plan to explore additional feature engineering techniques, experiment with more advanced models, and further optimize the selected model to enhance its predictive accuracy.
+2.NumPy: Library used for numerical operations and data handling.
+
+3.Matplotlib: Library for data and image visualization, here used for visulaing results.
+
+4.scikit-learn: Provides machine learning tools for building regression models, feature scaling, and polynomial feature generation.
+
+5.pandas: Utilized for data manipulation and analysis.
+
+CODE OVERVIEW
+
+1.Dataset Loading and Cleaning: The dataset is loaded from CSV files (train.csv and test.csv) and missing values in specific columns are dropped. Outliers in GrLivArea and SalePrice columns are removed for illustration purposes.
+
+2.Feature Engineering: A new feature, TotalBathrooms, is created by combining the number of full and half bathrooms.
+
+3.Selecting Features and Target Variable: Relevant features (GrLivArea, BedroomAbvGr, FullBath, and TotalBathrooms) and the target variable (SalePrice) are selected.
+
+4.Data Splitting: The dataset is split into training and testing sets.
+
+5.Feature Scaling: Standard scaling is applied to the features to ensure they have similar scales.
+
+6.Polynomial Features: Polynomial features up to the second degree are generated from the scaled features.
+
+7.Linear Regression Model Training: A linear regression model is trained using the polynomial features.
+
+8.Model Evaluation: The model is evaluated on the test set using metrics such as mean squared error, mean absolute error, R-squared score, and root mean squared error.
+
+9.Visualization: The predictions and actual prices for the living area (GrLivArea) are visualized using a scatter plot.
+
+R squared score: 0.75374958251358
 
 CONCLUSION
 
-In conclusion, this project marks my initiation into the field of machine learning. Through EDA and model comparison, I have gained valuable insights into the dataset and identified a robust model for predicting prices. This experience serves as a foundation for future projects and continuous learning in the exciting realm of machine learning.
+The code demonstrates the application of linear regression models for predicting house prices based on selected features. The R-squared score of 0.75 suggests that 75% of the variance in house prices is explained by the model. The inclusion of polynomial features allows the model to capture non-linear relationships in the data. The evaluation metrics and visualizations provide insights into the performance of the models on the test data.
 
 ACKNOLEDGEMENT
 
